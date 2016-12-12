@@ -1,0 +1,14 @@
+<h1>Редактирование профиля</h1>
+
+<div class="row">
+  <div class="col-md-6 buffer-top">
+
+    <%= render 'form' %>
+
+    <p class="buffer-top">
+      <!-- Ссылка на смену пароля текущего залогиненного юзера  -->
+      <%= link_to 'Сменить пароль', edit_user_registration_path %>
+    <p><%= button_to "Удалить аккаунт", registration_path(@user), data: { confirm: "Вы уверены?" }, method: :delete %></p>
+    </p>
+  </div>
+</div>
