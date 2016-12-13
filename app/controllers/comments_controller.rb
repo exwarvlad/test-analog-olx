@@ -1,4 +1,6 @@
 class CommentsController < ApplicationController
+  before_action :authenticate_user!, expect: [:show, :index]
+
   # задаю "родительский" poster для коммента
   before_action :set_poster, only: [:create, :destroy]
 

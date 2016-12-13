@@ -35,6 +35,14 @@ table {
   width: 400px;
 }
 
-th {
+tr {
   padding-bottom: 10px;
+}
+
+th {
+  padding: 5px;
+}
+
+.norm-width {
+  word-wrap: break-word;
 }

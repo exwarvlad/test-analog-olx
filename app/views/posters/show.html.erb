@@ -10,28 +10,33 @@
     </div>
 <% end %>
 
-<div class="row">
+<div class="row buffer-bottom">
   <div class="col-sm-6">
     <div class="caption">
       <p> <%= image_tag @poster.poster_photo if @poster.poster_photo? %> </p>
     </div>
   </div>
 
-  <div class="col-sm-6 thumbnail">
+  <div class="col-md-6 thumbnail">
     <p><strong>Цена: <%= @poster.price %> грн</strong></p>
     <p><strong>Автор: <%= link_to @poster.user.name, @poster.user %></strong></p>
     <p><strong>Телефон: #</strong></p>
   </div>
+</div>
+
+<div class="thumbnail">
+  <p class="norm-width"><%= @poster.description %></p>
+</div>
+
+<div class="buffer-top">
+
+  <% if user_signed_in? %>
+      <%= render partial: 'comments/form', locals: {comment: @new_comment || @poster.comments.build} %>
+  <% end %>
 
   <div class="buffer-top">
-
-    <%= render partial: 'comments/form', locals: {comment: @new_comment || @poster.comments.build} %>
-
-    <div class="buffer-both">
-      <%= render partial: 'comments/comment', collection: @poster.comments.except(@new_comment) %>
-    </div>
+    <%= render partial: 'comments/comment', collection: @poster.comments.except(@new_comment) %>
   </div>
-
 </div>
 
 
