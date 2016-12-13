@@ -4,6 +4,14 @@ ru:
       user:
         name: 'Имя'
         avatar: 'Аватарка'
+      poster:
+        title: 'Заголовок'
+        poster_type: 'Тип объявления'
+        price: 'Цена'
+        poster_photo: 'Фоточка'
+        description: 'Описание'
+      comment:
+        body: 'Комментарий'
     controllers:
       posters:
         created: 'Объявление успешно создано'
