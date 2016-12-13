@@ -1,5 +1,6 @@
 class Poster < ActiveRecord::Base
   belongs_to :user
+  has_many :comments
 
   mount_uploader :poster_photo, PosterPhotoUploader
 
@@ -10,7 +11,7 @@ class Poster < ActiveRecord::Base
       "Мода и стиль",
       "Недвижимость",
       "Транспорт",
-      "Отдам даром"
+      "Электроника"
   ]
 
   validates :poster_type, inclusion: { in: POSTER_TYPE ,

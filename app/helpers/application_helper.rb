@@ -10,11 +10,9 @@ module ApplicationHelper
     end
   end
 
-  def current_user_can_edit?(model)
-    user_signed_in? &&
-        (model.user == current_user || # если у модели есть юзер и он залогиненный
-            # пробуем у модели взять .poster и если он есть, проверяем его юзера
-            (model.try(:poster).present? && model.poster.user == current_user))
+  # Хелпер для иконок font-awesome
+  def fa_icon(icon_class)
+    content_tag 'span', '', class: "fa fa-#{icon_class}"
   end
 
 end

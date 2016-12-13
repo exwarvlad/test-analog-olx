@@ -22,6 +22,16 @@
     <p><strong>Автор: <%= link_to @poster.user.name, @poster.user %></strong></p>
     <p><strong>Телефон: #</strong></p>
   </div>
+
+  <div class="buffer-top">
+
+    <%= render partial: 'comments/form', locals: {comment: @new_comment || @poster.comments.build} %>
+
+    <div class="buffer-both">
+      <%= render partial: 'comments/comment', collection: @poster.comments.except(@new_comment) %>
+    </div>
+  </div>
+
 </div>
 
 

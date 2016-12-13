@@ -1,0 +1,15 @@
+<div class="buffer-bottom">
+  <p><%= comment.body %></p>
+  <p>
+    <span>
+        <em><strong><%= comment.user.name %></strong></em>
+    </span>
+    <em><%= l comment.created_at, format: :short %></em>
+    <% if current_user_can_edit?(comment) %>
+        <%= link_to(
+                fa_icon('trash'), poster_comment_path(comment.poster, comment),
+                method: :delete, data: {confirm: t('.destroy_confirm')}
+            ) %>
+    <% end %>
+  </p>
+</div>

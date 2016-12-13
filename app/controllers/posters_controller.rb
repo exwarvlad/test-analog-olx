@@ -10,7 +10,7 @@ class PostersController < ApplicationController
 
   def index
     @posters = Poster.all
-    @poster_vip = Poster.all.where(poster_type: "VIP")
+    @poster_vip = get_posters_category("VIP")
   end
 
   def new
@@ -35,6 +35,7 @@ class PostersController < ApplicationController
 
   end
 
+
   def update
     if @poster.update(poster_params)
       redirect_to @poster, notice: I18n.t('activerecord.controllers.posters.updated')
@@ -46,6 +47,31 @@ class PostersController < ApplicationController
   def destroy
     @poster.destroy
     redirect_to posters_url, notice: I18n.t('activerecord.controllers.posters.destroyed')
+  end
+
+  # экшены категорий объявлений
+  def childrens_world
+    @poster_children_world = get_posters_category("Детский мир")
+  end
+
+  def animals
+    @poster_animals = get_posters_category("Животные")
+  end
+
+  def fashion_and_style
+    @poster_fashion_and_style = get_posters_category("Мода и стиль")
+  end
+
+  def property
+    @poster_property = get_posters_category("Недвижимость")
+  end
+
+  def transport
+    @poster_transport = get_posters_category("Транспорт")
+  end
+
+  def electronics
+    @poster_electronics = get_posters_category("Электроника")
   end
 
   private
@@ -61,5 +87,10 @@ class PostersController < ApplicationController
 
   def set_current_user_poster
     @poster = current_user.posters.find(params[:id])
+  end
+
+  # метод возвращает все объявления с указанной категорией
+  def get_posters_category(type)
+    Poster.all.where(poster_type: type)
   end
 end
