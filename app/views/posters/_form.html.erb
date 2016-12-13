@@ -1,0 +1,31 @@
+<%= form_for(@poster) do |f| %>
+
+    <div class="form-group">
+      <%= f.label :title %>
+      <%= f.text_field :title, class: 'form-control' %>
+    </div>
+
+    <div class="form-group">
+      <%= f.label :poster_type %>
+      <%= f.select :poster_type, (select_helper_poster_type(Poster::POSTER_TYPE)) %>
+    </div>
+
+    <div class="form-group">
+      <%= f.label :price %>
+      <%= f.text_field :price, class: 'form-control' %>
+    </div>
+
+    <div class="form-group">
+      <%= f.label :poster_photo %>
+      <p><%= image_tag(@poster.poster_photo.thumb.url) if @poster.poster_photo? %></p>
+      <%= f.file_field :poster_photo %>
+    </div>
+
+    <div class="actions">
+      <%= f.submit 'Сохранить', class: 'btn btn-primary' %>
+      <% if @poster.persisted? %>
+          <%= link_to 'Удалить событие', poster_path(@poster), method: :delete, data: {confirm: 'Действительно ли вы хотите удалить объявление?'}, class: 'btn btn-primary' %>
+      <% end %>
+      или <%= link_to 'вернуться', :back %>
+    </div>
+<% end %>

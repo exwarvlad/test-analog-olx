@@ -1,4 +1,7 @@
 class PostersController < ApplicationController
+  # посылаю не залогиненных пользователей при попытки создания объявления
+  before_action :authenticate_user!, only: [:new]
+
   # задаю объект @poster для экшен show
   before_action :set_poster, only: [:show]
 
@@ -22,7 +25,7 @@ class PostersController < ApplicationController
     @poster = current_user.posters.build(poster_params)
 
     if @poster.save
-      redirect_to @poster, I18n.t('activerecord.controllers.posters.created')
+      redirect_to @poster, notice: I18n.t('activerecord.controllers.posters.created')
     else
       render :new
     end
