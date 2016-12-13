@@ -9,3 +9,17 @@
       </p>
   <% end %>
 </div>
+
+
+<div class="row">
+  <div class="col-md-12">
+    <% if @user.posters.any? %>
+        <h3>Созданные обявления:</h3>
+        <div class="row">
+          <%= render partial: 'posters/poster', collection: @user.posters %>
+        </div>
+    <% else %>
+        <p class="buffer-top">Пользователь пока не создал ни одного объявления</p>
+    <% end %>
+  </div>
+</div>

@@ -36,11 +36,16 @@ class PostersController < ApplicationController
   end
 
   def update
-
+    if @poster.update(poster_params)
+      redirect_to @poster, notice: I18n.t('activerecord.controllers.posters.updated')
+    else
+      render :edit
+    end
   end
 
   def destroy
-
+    @poster.destroy
+    redirect_to posters_url, notice: I18n.t('activerecord.controllers.posters.destroyed')
   end
 
   private

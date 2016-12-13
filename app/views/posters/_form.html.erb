@@ -24,7 +24,7 @@
     <div class="actions">
       <%= f.submit 'Сохранить', class: 'btn btn-primary' %>
       <% if @poster.persisted? %>
-          <%= link_to 'Удалить событие', poster_path(@poster), method: :delete, data: {confirm: 'Действительно ли вы хотите удалить объявление?'}, class: 'btn btn-primary' %>
+          <%= link_to 'Удалить объявление', poster_path(@poster), method: :delete, data: {confirm: 'Действительно ли вы хотите удалить объявление?'}, class: 'btn btn-primary' %>
       <% end %>
       или <%= link_to 'вернуться', :back %>
     </div>

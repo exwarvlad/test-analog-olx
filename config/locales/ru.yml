@@ -7,3 +7,5 @@ ru:
     controllers:
       posters:
         created: 'Объявление успешно создано'
+        updated: 'Объявление успешно обновлено'
+        destroyed: 'Обявление успешно удалено'
