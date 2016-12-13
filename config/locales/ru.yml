@@ -4,6 +4,7 @@ ru:
       user:
         name: 'Имя'
         avatar: 'Аватарка'
+        phone: 'Номер телефона'
       poster:
         title: 'Заголовок'
         poster_type: 'Тип объявления'

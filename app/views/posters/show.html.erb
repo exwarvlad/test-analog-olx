@@ -20,11 +20,12 @@
   <div class="col-md-6 thumbnail">
     <p><strong>Цена: <%= @poster.price %> грн</strong></p>
     <p><strong>Автор: <%= link_to @poster.user.name, @poster.user %></strong></p>
-    <p><strong>Телефон: #</strong></p>
+    <p><strong>Телефон: <%= @poster.user.phone %></strong></p>
   </div>
 </div>
 
 <div class="thumbnail">
+  <h4>Описание</h4>
   <p class="norm-width"><%= @poster.description %></p>
 </div>
 

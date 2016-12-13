@@ -8,4 +8,9 @@ class User < ActiveRecord::Base
 
   has_many :posters
   has_many :comments
+
+  validates :name, presence: true
+  validates :name, uniqueness: true
+  validates :phone, presence: true, length: {in: 5..9}
+
 end

@@ -16,4 +16,9 @@ class Poster < ActiveRecord::Base
 
   validates :poster_type, inclusion: { in: POSTER_TYPE ,
             message: "Объявление имеет не допустимое значение" }
+
+  validates :title, presence: true
+  validates :description, presence: true, length: {in: 5..580}
+  validates :price, presence: true
+  validates :poster_type, presence: true
 end
