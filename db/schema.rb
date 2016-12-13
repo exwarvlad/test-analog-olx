@@ -18,13 +18,13 @@ ActiveRecord::Schema.define(version: 20161212190442) do
     t.string   "poster_photo"
     t.text     "description"
     t.integer  "price"
-    t.string   "type"
-    t.integer  "users_id"
+    t.string   "poster_type"
+    t.integer  "user_id"
     t.datetime "created_at",   null: false
     t.datetime "updated_at",   null: false
   end
 
-  add_index "posters", ["users_id"], name: "index_posters_on_users_id"
+  add_index "posters", ["user_id"], name: "index_posters_on_user_id"
 
   create_table "users", force: :cascade do |t|
     t.string   "name"

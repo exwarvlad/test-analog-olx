@@ -5,8 +5,8 @@ class CreatePosters < ActiveRecord::Migration
       t.string :poster_photo
       t.text :description
       t.integer :price
-      t.string :type
-      t.references :users, index: true, foreign_key: true
+      t.string :poster_type
+      t.references :user, index: true, foreign_key: true
 
       t.timestamps null: false
     end

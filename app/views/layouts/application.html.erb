@@ -50,10 +50,12 @@
           <ul class="nav navbar-nav">
             <% if user_signed_in? %>
                 <li><%= link_to 'Профиль', current_user %></li>
+                <%= link_to 'Создать объявление', new_poster_path, class: 'btn btn-warning buffer-top-header' %>
                 <li><%= link_to 'Выйти', destroy_user_session_path, :method => :delete %></li>
             <% else %>
                 <li><%= link_to 'Войти', new_user_session_path %></li>
                 <li><%= link_to 'Зарегистрироваться', new_user_registration_path %></li>
+                <%= link_to 'Создать объявление', new_poster_path, class: 'btn btn-warning buffer-top-header' %>
             <% end %>
           </ul>
         </div>

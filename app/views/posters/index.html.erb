@@ -1,0 +1,21 @@
+<table>
+  <tr>
+    <th><%= link_to "Детский мир", "#" %></th>
+    <th><%= link_to "Животные", "#" %></th>
+    <th><%= link_to "Мода и стиль", "#" %></th>
+  </tr>
+
+  <tr>
+    <th><%= link_to "Недвижимость", "#" %></th>
+    <th><%= link_to "Транспорт", "#" %></th>
+    <th><%= link_to "Отдам даром", "#" %></th>
+  </tr>
+</table>
+
+
+<h1>VIP-Объявления</h1>
+
+
+<div class="row buffer-bottom">
+  <%= render partial: 'posters/poster', collection: @poster_vip %>
+</div>

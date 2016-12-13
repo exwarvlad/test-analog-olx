@@ -1,0 +1,9 @@
+ru:
+  activerecord:
+    attributes:
+      user:
+        name: 'Имя'
+        avatar: 'Аватарка'
+    controllers:
+      posters:
+        created: 'Объявление успешно создано'
